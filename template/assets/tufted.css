@@ -164,3 +164,31 @@ POST TILES
 .post-tile p {
     margin: 0.25rem 0 0;
 }
+
+/*******************************************************************************
+QUOTES
+*******************************************************************************/
+
+/* A block quote with its attribution: `<figure class="quote">` holding the
+   `<blockquote>` and a `<figcaption>`, set like Tufte CSS's `blockquote footer`. */
+figure.quote {
+    max-width: none;
+    margin: 0;
+}
+
+figure.quote blockquote {
+    margin-bottom: 0;
+}
+
+figure.quote figcaption {
+    float: none;
+    width: 55%;
+    max-width: none;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+figure.quote figcaption cite {
+    font-style: normal;
+}
