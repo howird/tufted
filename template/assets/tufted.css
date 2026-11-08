@@ -122,16 +122,53 @@ a.footnote-ref-link {
 MATH NOTATION
 *******************************************************************************/
 
-/* TODO: Remove hack for math zooming */
-figure[role="math"] {
+/* Match Tufte's main text column; nested math inherits its surroundings. */
+section > math[display="block"],
+section > .math-equation {
+    width: 55%;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 760px) {
+    section > math[display="block"],
+    section > .math-equation {
+        width: 100%;
+    }
+}
+
+math[display="block"],
+.math-equation {
+    margin-block: 1em;
+}
+
+.math-equation {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1em;
+}
+
+.math-equation > math {
+    margin-block: 0;
+    overflow-x: auto;
+}
+
+.math-number {
+    white-space: nowrap;
+}
+
+/* SVG frames need the legacy sizing and dark-mode correction. */
+figure.math-svg {
     font-size: 1.4em;
     margin-block: 1em;
 }
 
-@media (prefers-color-scheme: dark) {
+span.math-svg {
+    display: inline-block;
+}
 
-    /* Invert math figures for better contrast */
-    [role="math"] {
+@media (prefers-color-scheme: dark) {
+    .math-svg > svg {
         filter: invert(1) hue-rotate(180deg);
     }
 }
