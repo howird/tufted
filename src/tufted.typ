@@ -1,4 +1,4 @@
-#import "math.typ": template-math
+#import "math.typ": template-math, math-svg
 #import "refs.typ": template-refs
 #import "notes.typ": template-notes
 #import "figures.typ": template-figures

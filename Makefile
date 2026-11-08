@@ -5,7 +5,7 @@ VERSION := $(shell grep '^version = ' typst.toml | sed 's/version = "\(.*\)"/\1/
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Define phony (non-file) targets
-.PHONY: link link-macos link-linux link-windows sync-assets check build html
+.PHONY: link link-macos link-linux link-windows sync-assets check test build html
 
 # Create symlink to local package cache
 link:
@@ -50,6 +50,10 @@ clean:
 # Check package for common issues
 check:
 	typst-package-check check
+
+# Compile and inspect the math regression fixture (requires Python 3).
+test:
+	python3 tests/check_math.py
 
 html: link
 	$(MAKE) -C template html
