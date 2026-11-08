@@ -2,6 +2,7 @@
 #import "refs.typ": template-refs
 #import "notes.typ": template-notes
 #import "figures.typ": template-figures
+#import "quotes.typ": template-quotes
 #import "layout.typ": full-width, margin-note
 
 #let make-header(links) = html.header(
@@ -30,6 +31,7 @@
   show: template-refs
   show: template-notes
   show: template-figures
+  show: template-quotes
 
   set text(lang: lang)
 
